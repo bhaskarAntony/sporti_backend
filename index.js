@@ -9,15 +9,17 @@ const loginRoutes = require('./routes/loginRoutes');
 // const ConferenceHallBookingRoutes = require('./routes/conferencehallRoutes');
 const feedbackRoutes = require('./routes/feedBackroutes');
 // const ConfrenceHallRouter = require('./routes/conferencehallRoutes');
-const servicebookingRoutes = require('./routes/ServiceBookRoutes')
+const servicebookingRoutes = require('./routes/payments')
 const crypto = require('crypto');
 const authRoutes = require('./routes/authRoutes');
+const paymentRoutes = require('./routes/payments');
 const { default: axios } = require('axios');
+// const SMSServices = require('./SMSServices');
 
 const app = express();
-
 app.use(bodyParser.json());
 app.use(cors())
+// const smsServices = new smsServices();
 
 // Connect to MongoDB using Mongoose
 mongoose.connect('mongodb+srv://bhaskarAntoty123:bhaskar3958@bhaskarantony.wagpkay.mongodb.net/?retryWrites=true&w=majority', {
@@ -52,6 +54,7 @@ app.use('/api', authRoutes);
 app.use('/api/feedback', feedbackRoutes);
 // app.use('/api/confrenceHall', ConfrenceHallRouter);
 app.use('/api', servicebookingRoutes);
+app.use('/api', paymentRoutes);
 // Endpoint to send SMS
 app.post('/send-sms', async (req, res) => {
   const { mobileNumber, message } = req.body;
