@@ -13,7 +13,7 @@ exports.sendConfirmationEmail = (formData) => {
         from: 'bhaskarbabucm6@gmail.com',
         to: formData.email,
         subject: 'Booking Confirmation',
-        text: `Dear ${formData.username},\n\nYour booking with application number ${formData.applicationNo} has been confirmed.\n\nThank you for choosing our services.\n\nBest regards,\nYour Team`
+        text: `Dear ${formData.username},\n\nYour booking with application number ${formData.applicationNo}  Payment is  ${formData.paymentStatus}  ${formData.Paidamount} \n\nThank you for choosing our services.\n\nBest regards,\nYour Team`
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
