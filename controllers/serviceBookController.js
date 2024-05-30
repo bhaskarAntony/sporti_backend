@@ -1,4 +1,4 @@
-const Booking = require('../models/ServiceBooking');
+const Booking = require('../models/payment');
 const emailService = require('../services/emailService');
 const { v4: uuidv4 } = require('uuid');
 

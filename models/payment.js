@@ -4,6 +4,7 @@ const PaymentsSchema = new mongoose.Schema({
     username: String,
     email: String,
     phoneNumber: String,
+    applicationNo:String,
     sporti: String,
     checkIn: Date,
     checkOut: Date,
@@ -16,7 +17,7 @@ const PaymentsSchema = new mongoose.Schema({
     },
     Paidamount:String,
     Paiddatetime:String,
-    K1TranNo:String,
+    K1TranNo:String,    
     SPORTIPWD:String,
     SPORTIUSRID:String,
     CheckSum:String

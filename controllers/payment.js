@@ -26,7 +26,7 @@ const submitForm = async (req, res) => {
         const booking = new Booking(formData);
         await booking.save();
 
-        emailService.sendConfirmationEmail(formData);
+        // emailService.sendConfirmationEmail(formData);
 
         res.json({ success: true, user:booking });
     } catch (error) {
@@ -43,7 +43,7 @@ const updateBooking = async (req, res) => {
         const updatedBooking = await Booking.findOneAndUpdate({ applicationNo }, formData, { new: true });
 
         if (!updatedBooking) {
-            return res.status(404).json({ success: false, error: 'Booking not found' });
+            return res.status(404).json({ success: false, error: 'Application number is not found' });
         }
 
         res.json({ success: true, updatedBooking });
