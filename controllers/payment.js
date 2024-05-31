@@ -27,7 +27,7 @@ const submitForm = async (req, res) => {
         await booking.save();
 
       
-
+       emailService.sendPendingEmail(formData);
         res.json({ success: true, user:booking });
     } catch (error) {
         console.error('Error submitting form:', error);
@@ -99,5 +99,39 @@ const allBookings = async (req, res) => {
     }
   };
 
+  // Get all bookings
+const getAll = async (req, res) => {
+    try {
+        const allBookings = await Booking.find();
+        res.status(200).json(allBookings);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
 
-module.exports = {submitForm, updateBooking, getBookingByApplicationNo, deleteBooking, allBookings}
+// Get all pending bookings
+const pendingBookings =  async (req, res) => {
+    try {
+        const pendingBookings = await Booking.find({ status: 'pending' });
+        res.status(200).json(pendingBookings);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+// Accept or reject a booking
+const confirmBookings = async (req, res) => {
+    try {
+        const bookingId = req.params.id;
+        const updatedBooking = await Booking.findByIdAndUpdate(bookingId, { status: 'confirmed' }, { new: true });
+        res.status(200).json(updatedBooking);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
+
+
+module.exports = {submitForm, updateBooking, getBookingByApplicationNo, deleteBooking, allBookings, pendingBookings, confirmBookings}
