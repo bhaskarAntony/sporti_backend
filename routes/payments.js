@@ -38,7 +38,6 @@ router.patch('/:id/confirm', async (req, res) => {
         booking.status = 'confirmed';
         sendConfirmationEmail(booking)
         await booking.save();
-
         // Send email to user
         // You need to implement email sending logic here
 

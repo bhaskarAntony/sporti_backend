@@ -61,7 +61,7 @@ exports.sendConfirmationEmail = (formData) => {
                         <p>Your booking request for the dates <strong>${formData.checkIn}</strong> to <strong>${formData.checkout}</strong> has been confirmed.</p>
                         <p>We look forward to welcoming you.</p>
                         <h1>You can complete the payment</h1>
-                        <a href="https://new-spoorti.vercel.app/payment/${formData.applicationNo}">Pay now</a>
+                        <a href="https://new-spoorti.vercel.app/payment/562382485">Pay now</a>
                     </div>
                     <div class="footer">
                         <p>Thank you for choosing our services!</p>
