@@ -13,6 +13,7 @@ const servicebookingRoutes = require('./routes/payments')
 const crypto = require('crypto');
 const authRoutes = require('./routes/authRoutes');
 const paymentRoutes = require('./routes/payments');
+const AllpaymentRoutes = require('./routes/allPayments');
 const { default: axios } = require('axios');
 // const SMSServices = require('./SMSServices');
 
@@ -55,6 +56,7 @@ app.use('/api/feedback', feedbackRoutes);
 // app.use('/api/confrenceHall', ConfrenceHallRouter);
 app.use('/api', servicebookingRoutes);
 app.use('/api', paymentRoutes);
+app.use('/api', AllpaymentRoutes);
 // Endpoint to send SMS
 app.post('/send-sms', async (req, res) => {
   const { mobileNumber, message } = req.body;
@@ -92,5 +94,5 @@ const generateSecretKey = () => {
 console.log('key', generateSecretKey());
 
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 3005;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
