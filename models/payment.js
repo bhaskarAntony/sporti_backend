@@ -15,6 +15,7 @@ const PaymentsSchema = new mongoose.Schema({
         type: String,
         default: 'Pending'
     },
+    total:String,
     Paidamount:String,
     Paiddatetime:String,
     K1TranNo:String,    
