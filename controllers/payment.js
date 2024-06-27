@@ -27,7 +27,7 @@ const submitForm = async (req, res) => {
         await booking.save();
 
       
-       emailService.sendPendingEmail(formData);
+    //    emailService.sendPendingEmail(formData);
         res.json({ success: true, user:booking });
     } catch (error) {
         console.error('Error submitting form:', error);

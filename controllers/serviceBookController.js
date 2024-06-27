@@ -26,7 +26,7 @@ const submitForm = async (req, res) => {
         const booking = new Booking(formData);
         await booking.save();
 
-        emailService.sendConfirmationEmail(formData);
+        // emailService.sendConfirmationEmail(formData);
 
         res.json({ success: true, user:booking });
     } catch (error) {
