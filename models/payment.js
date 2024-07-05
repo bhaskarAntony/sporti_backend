@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const PaymentsSchema = new mongoose.Schema({
     username: String,
     email: String,
+    officerDesignation:String,
+    officerCadre:String,
     phoneNumber: String,
     applicationNo:String,
     sporti: String,
@@ -10,18 +12,13 @@ const PaymentsSchema = new mongoose.Schema({
     checkOut: Date,
     serviceName: String,
     serviceType: String,
-    AppNo: String,
+    roomType:String,
+    noGuests:String,
     paymentStatus: {
         type: String,
         default: 'Pending'
     },
-    total:String,
-    Paidamount:String,
-    Paiddatetime:String,
-    K1TranNo:String,    
-    SPORTIPWD:String,
-    SPORTIUSRID:String,
-    CheckSum:String,
+    totalCost:String,
     status: {
         type: String,
         enum: ['pending', 'confirmed', 'rejected'], // Add 'rejected' status
