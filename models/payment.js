@@ -11,6 +11,7 @@ const PaymentsSchema = new mongoose.Schema({
     checkIn: Date,
     checkOut: Date,
     serviceName: String,
+    eventdate:String,
     serviceType: String,
     roomType:String,
     noGuests:String,
